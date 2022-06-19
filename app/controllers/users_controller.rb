@@ -11,7 +11,6 @@ class UsersController < ApplicationController
   def create
       @user=User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
       if @user.save
-        byebug
         if params.require(:user).permit(:avatar).present?
           @user.avatar.attach(params.require(:user).permit(:avatar)['avatar'])
         end
