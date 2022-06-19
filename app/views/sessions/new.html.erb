@@ -1,0 +1,29 @@
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %> at <%= Time.now %></div>
+<% end %>
+<% if flash[:danger] %>
+    <div class='errors'><%= flash[:danger] %> </div>
+<% end %>
+<% if flash[:otp_sucess] %>
+    <div class='notice'><%= flash[:otp_sucess] %> </div>
+<% end %>
+<div class="login">
+   <h2>Login</h2>
+    <%= form_for(:session, url: login_path) do |f| %>
+
+      <%= f.label :email %><br/>
+      <%= f.email_field :email %><br/>
+
+      <%= f.label :password %><br/>
+      <%= f.password_field :password %><br/>
+
+      <%= f.submit "Log in", class: "btn btn-primary" %>
+    <% end %>
+
+    <p>New user? <%= link_to "Sign up now", signup_path %></p> </br>
+    <p>Trouble logging in ? <%= link_to "forgot password", password_reset_path %></p>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5211866546894580"
+     crossorigin="anonymous"></script>
+  
+</div>
